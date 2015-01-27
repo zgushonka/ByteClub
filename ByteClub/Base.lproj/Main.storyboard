@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4504" systemVersion="13A558" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="sLj-Dl-kf0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="sLj-Dl-kf0">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3734.1"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -23,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="-4432" y="-2468"/>
         </scene>
-        <!--Auth Login View Controller - Log In to ByteClub-->
+        <!--Log In to ByteClub-->
         <scene sceneID="O4T-qE-irt">
             <objects>
                 <viewController storyboardIdentifier="Login" title="Log In to ByteClub" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lth-UZ-SsI" customClass="OAuthLoginViewController" sceneMemberID="viewController">
@@ -37,7 +38,6 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcu-0k-eT2">
                                 <rect key="frame" x="85" y="230" width="150" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.23921568627450979" green="0.60392156862745094" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Lets Go">
@@ -50,7 +50,6 @@
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="310" translatesAutoresizingMaskIntoConstraints="NO" id="xGk-At-Rtx">
                                 <rect key="frame" x="5" y="96" width="310" height="126"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">Dropbox requires you to authorize DropShare to use your account. Press the button below to be taken to Dropbox's authorization page.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.32065827590000001" blue="0.66768973210000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -65,7 +64,7 @@
             </objects>
             <point key="canvasLocation" x="-3781" y="-2943"/>
         </scene>
-        <!--Notes View Controller - Notes-->
+        <!--Notes-->
         <scene sceneID="oVh-kW-XOc">
             <objects>
                 <tableViewController id="bm7-xq-wHZ" customClass="NotesViewController" sceneMemberID="viewController">
@@ -137,7 +136,6 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="enter challenge name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O3W-Ym-fUe">
                                                     <rect key="frame" x="20" y="7" width="282" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="tintColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="textColor" red="0.0" green="0.32065827590000001" blue="0.66768973210000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -159,7 +157,6 @@
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eem-D4-0IY">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="206"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="tintColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="textColor" red="0.0" green="0.32065827590000001" blue="0.66768973210000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -239,7 +236,7 @@
             </objects>
             <point key="canvasLocation" x="-3781" y="-2170"/>
         </scene>
-        <!--Navigation Controller - Notes-->
+        <!--Notes-->
         <scene sceneID="kKV-uS-5XX">
             <objects>
                 <navigationController title="Notes" automaticallyAdjustsScrollViewInsets="NO" id="jCu-Ep-R6O" sceneMemberID="viewController">
@@ -259,7 +256,7 @@
             </objects>
             <point key="canvasLocation" x="-3114" y="-2582"/>
         </scene>
-        <!--Navigation Controller - PanoPhotos-->
+        <!--PanoPhotos-->
         <scene sceneID="r0j-aC-ts7">
             <objects>
                 <navigationController title="PanoPhotos" automaticallyAdjustsScrollViewInsets="NO" id="33q-Au-5tf" sceneMemberID="viewController">
@@ -279,7 +276,7 @@
             </objects>
             <point key="canvasLocation" x="-3114" y="-1765"/>
         </scene>
-        <!--Photos View Controller - PanoPhotos-->
+        <!--PanoPhotos-->
         <scene sceneID="uMJ-eQ-vH1">
             <objects>
                 <viewController title="PanoPhotos" id="xVr-kI-gfj" customClass="PhotosViewController" sceneMemberID="viewController">
@@ -293,7 +290,6 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="52" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="a6X-Hb-f86">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.92156862750000001" green="0.96470588239999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="568" id="QmN-BR-kMt"/>
@@ -308,7 +304,6 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TfP-oG-f1a">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -324,22 +319,18 @@
                             </tableView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UU4-XN-lmQ">
                                 <rect key="frame" x="10" y="230" width="300" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GPq-Fh-6pu">
                                         <rect key="frame" x="70" y="39" width="150" height="2"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </progressView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploading Photo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCd-wn-r67">
                                         <rect key="frame" x="81" y="7" width="128" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XE4-fW-KEu">
                                         <rect key="frame" x="109" y="36" width="73" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="73" id="g3d-5z-khC"/>
                                         </constraints>
@@ -401,7 +392,6 @@
         <image name="40-inbox" width="24" height="24"/>
         <image name="42-photos" width="22" height="24"/>
     </resources>
-    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -410,4 +400,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="cIg-XS-Fsh"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

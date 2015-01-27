@@ -12,30 +12,14 @@
 @implementation OAuthLoginViewController
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-
-- (IBAction)signIn:(id)sender
-{
+- (IBAction)signIn:(id)sender {
     // show alert view saying we are getting token
     _tokenAlert = [[UIAlertView alloc] initWithTitle:@"Getting token"
-                                                            message:@"Logging into Dropbox"
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"Cancel"
-                                                  otherButtonTitles:nil];
+                                             message:@"Logging into Dropbox"
+                                            delegate:nil
+                                   cancelButtonTitle:@"Cancel"
+                                   otherButtonTitles:nil];
     [_tokenAlert show];
 
     // move on to step 2 of oauth token acquisation
@@ -43,8 +27,7 @@
 }
 
 # pragma mark - OAUTH 1.0a STEP 1
--(void)getOAuthRequestToken
-{
+-(void)getOAuthRequestToken {
     // OAUTH Step 1. Get request token.
     [Dropbox requestTokenWithCompletionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
@@ -85,10 +68,5 @@
     }];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end

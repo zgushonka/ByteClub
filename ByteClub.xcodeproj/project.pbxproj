@@ -100,10 +100,10 @@
 		CB6A0DA017A5CFE700E226E7 /* OAuth */ = {
 			isa = PBXGroup;
 			children = (
-				CB63AF6317A3446300DEBCD7 /* Dropbox.h */,
-				CB63AF6417A3446300DEBCD7 /* Dropbox.m */,
 				CB63AF6617A3452700DEBCD7 /* OAuthLoginViewController.h */,
 				CB63AF6717A3452700DEBCD7 /* OAuthLoginViewController.m */,
+				CB63AF6317A3446300DEBCD7 /* Dropbox.h */,
+				CB63AF6417A3446300DEBCD7 /* Dropbox.m */,
 			);
 			name = OAuth;
 			sourceTree = "<group>";
