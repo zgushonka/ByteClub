@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) NSArray *notes;
 
+@property (nonatomic, strong) NSURLSession *session;
 
 @end
 
@@ -37,8 +38,48 @@
 }
 
 // list files found in the root dir of appFolder
-- (void)notesOnDropbox
-{
+- (void)notesOnDropbox {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+
+    NSURL *url = [Dropbox appRootURL];
+    
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (!error) {
+            NSHTTPURLResponse *httpResp = (NSHTTPURLResponse *) response;
+            if (httpResp.statusCode == 200) {
+                NSError *jsonError;
+                
+                NSDictionary *notesJSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&jsonError];
+                
+                NSMutableArray *notesFound = [[NSMutableArray alloc] init];
+                
+                if (!jsonError) {
+                    NSArray *contantsOfRootDirectory = notesJSON[@"contants"];
+                    
+                    for (NSDictionary *dataDictionary in contantsOfRootDirectory) {
+                        if (![dataDictionary[@"is_dir"] boolValue]) {
+                            DBFile *note = [[DBFile alloc] initWithJSONData:dataDictionary];
+                            [notesFound addObject:note];
+                        }
+                    }
+                    
+                    [notesFound sortUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+                        return [obj1 compare:obj2];
+                    }];
+                    
+                    self.notes = notesFound;
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                        [self.tableView reloadData];
+                    });
+                }
+            }
+            
+        }
+    }];
+    
+    [dataTask resume];    
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,7 +116,7 @@
     UINavigationController *navigationController = segue.destinationViewController;
     NoteDetailsViewController *showNote = (NoteDetailsViewController*) [navigationController viewControllers][0];
     showNote.delegate = self;
-    showNote.session = _session;
+//    showNote.session = _session;
 
     if ([segue.identifier isEqualToString:@"editNote"]) {
         
