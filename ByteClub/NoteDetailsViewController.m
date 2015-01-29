@@ -76,7 +76,29 @@
         _note.path = _filename.text;
         
         // - UPLOAD FILE TO DROPBOX - //
-        [self.delegate noteDetailsViewControllerDoneWithDetails:self];
+//        [self.delegate noteDetailsViewControllerDoneWithDetails:self];
+        
+        NSURL *url = [Dropbox uploadURLForPath:self.note.path];
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+        [request setHTTPMethod:@"PUT"];
+        
+        NSData *noteContents = [self.note.contents dataUsingEncoding:NSUTF8StringEncoding];
+        
+        NSURLSessionUploadTask *uploadTask = [self.session uploadTaskWithRequest:request
+                                                                        fromData:noteContents
+                                                               completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+                                              {
+                                                  NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*) response;
+                                                  if (!error && httpResponse.statusCode == 200) {
+                                                      [self.delegate noteDetailsViewControllerDoneWithDetails:self];
+                                                  } else {
+                                                      NSLog(@"error while upload in %@ %@", [self class], NSStringFromSelector(_cmd));
+                                                  }
+                                              }];
+        
+        [uploadTask resume];
+        
         
     } else {
         UIAlertView *noTextAlert = [[UIAlertView alloc] initWithTitle:@"No text"
@@ -88,9 +110,7 @@
     }
 }
 
-- (IBAction)cancel:(id)sender
-{
-    
+- (IBAction)cancel:(id)sender {
     [self.delegate noteDetailsViewControllerDidCancel:self];
 }
 

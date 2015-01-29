@@ -125,16 +125,16 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     UINavigationController *navigationController = segue.destinationViewController;
-    NoteDetailsViewController *showNote = (NoteDetailsViewController*) [navigationController viewControllers][0];
-    showNote.delegate = self;
-    showNote.session = self.session;
+    NoteDetailsViewController *showNoteVC = (NoteDetailsViewController*) [navigationController viewControllers][0];
+    showNoteVC.delegate = self;
+    showNoteVC.session = self.session;
 
     if ([segue.identifier isEqualToString:@"editNote"]) {
         
         // pass selected note to be edited //
         if ([segue.identifier isEqualToString:@"editNote"]) {
             DBFile *note =  self.notes[[self.tableView indexPathForSelectedRow].row];
-            showNote.note = note;
+            showNoteVC.note = note;
         }
     }
 }
