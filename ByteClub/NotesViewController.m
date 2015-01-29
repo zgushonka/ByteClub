@@ -22,8 +22,7 @@
 @implementation NotesViewController
 
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
+- (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
@@ -31,9 +30,21 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        NSURLSessionConfiguration *config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+        
+        [config setHTTPAdditionalHeaders:@{@"Authorization": [Dropbox apiAuthorizationHeader]}];
+        
+        _session = [NSURLSession sessionWithConfiguration:config];
+    }
+    return self;
+}
+
+- (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self notesOnDropbox];
 }
 
@@ -54,7 +65,7 @@
                 NSMutableArray *notesFound = [[NSMutableArray alloc] init];
                 
                 if (!jsonError) {
-                    NSArray *contantsOfRootDirectory = notesJSON[@"contants"];
+                    NSArray *contantsOfRootDirectory = notesJSON[@"contents"];
                     
                     for (NSDictionary *dataDictionary in contantsOfRootDirectory) {
                         if (![dataDictionary[@"is_dir"] boolValue]) {
@@ -116,13 +127,13 @@
     UINavigationController *navigationController = segue.destinationViewController;
     NoteDetailsViewController *showNote = (NoteDetailsViewController*) [navigationController viewControllers][0];
     showNote.delegate = self;
-//    showNote.session = _session;
+    showNote.session = self.session;
 
     if ([segue.identifier isEqualToString:@"editNote"]) {
         
         // pass selected note to be edited //
         if ([segue.identifier isEqualToString:@"editNote"]) {
-            DBFile *note =  _notes[[self.tableView indexPathForSelectedRow].row];
+            DBFile *note =  self.notes[[self.tableView indexPathForSelectedRow].row];
             showNote.note = note;
         }
     }
