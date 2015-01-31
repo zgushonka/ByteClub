@@ -288,35 +288,6 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="52" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="a6X-Hb-f86">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" red="0.92156862750000001" green="0.96470588239999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="568" id="QmN-BR-kMt"/>
-                                </constraints>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PhotoCell" rowHeight="52" id="Xvn-yd-Xzb" customClass="PhotoCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="52"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xvn-yd-Xzb" id="H6m-S7-AFS">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TfP-oG-f1a">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
-                                                </imageView>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="thumbnailImage" destination="TfP-oG-f1a" id="y7R-5D-A5r"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="xVr-kI-gfj" id="gUC-zY-S3z"/>
-                                    <outlet property="delegate" destination="xVr-kI-gfj" id="Fv9-Fn-LMO"/>
-                                </connections>
-                            </tableView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UU4-XN-lmQ">
                                 <rect key="frame" x="10" y="230" width="300" height="80"/>
                                 <subviews>
@@ -357,17 +328,44 @@
                                     <constraint firstItem="XE4-fW-KEu" firstAttribute="bottom" secondItem="UU4-XN-lmQ" secondAttribute="bottom" id="y68-Fz-mIB"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="52" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="a6X-Hb-f86">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                                <color key="backgroundColor" red="0.92156862750000001" green="0.96470588239999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PhotoCell" rowHeight="52" id="Xvn-yd-Xzb" customClass="PhotoCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="52"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xvn-yd-Xzb" id="H6m-S7-AFS">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TfP-oG-f1a">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="52"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="thumbnailImage" destination="TfP-oG-f1a" id="y7R-5D-A5r"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="xVr-kI-gfj" id="gUC-zY-S3z"/>
+                                    <outlet property="delegate" destination="xVr-kI-gfj" id="Fv9-Fn-LMO"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.92156862750000001" green="0.96470588239999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.92156862750000001" green="0.96470588239999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="UU4-XN-lmQ" secondAttribute="bottom" constant="145" id="DKh-rV-Bdh"/>
-                            <constraint firstItem="a6X-Hb-f86" firstAttribute="top" secondItem="ZX7-MW-vs4" secondAttribute="top" id="Jqx-jJ-h1a"/>
+                            <constraint firstAttribute="trailing" secondItem="a6X-Hb-f86" secondAttribute="trailing" id="Ev8-6l-1hS"/>
                             <constraint firstItem="UU4-XN-lmQ" firstAttribute="centerX" secondItem="ZX7-MW-vs4" secondAttribute="centerX" id="VYa-HD-tVi"/>
-                            <constraint firstItem="UU4-XN-lmQ" firstAttribute="centerX" secondItem="a6X-Hb-f86" secondAttribute="centerX" id="iQf-aE-l0y"/>
                             <constraint firstItem="UU4-XN-lmQ" firstAttribute="leading" secondItem="ZX7-MW-vs4" secondAttribute="leading" constant="10" id="lnt-VE-tPu"/>
-                            <constraint firstItem="a6X-Hb-f86" firstAttribute="leading" secondItem="ZX7-MW-vs4" secondAttribute="leading" id="nXS-kb-Rzu"/>
+                            <constraint firstItem="a6X-Hb-f86" firstAttribute="top" secondItem="lQP-Qh-ZTb" secondAttribute="bottom" id="qYh-RF-2x1"/>
                             <constraint firstItem="UU4-XN-lmQ" firstAttribute="top" secondItem="ZX7-MW-vs4" secondAttribute="top" constant="230" id="uPd-ln-Bqy"/>
+                            <constraint firstItem="a6X-Hb-f86" firstAttribute="leading" secondItem="ZX7-MW-vs4" secondAttribute="leading" id="ye4-i0-JCW"/>
+                            <constraint firstItem="RR2-qx-FuZ" firstAttribute="top" secondItem="a6X-Hb-f86" secondAttribute="bottom" id="zxA-rl-jVm"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="PanoPhotos" id="ieb-7u-4NE">
