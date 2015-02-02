@@ -66,7 +66,6 @@
     [[self.session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*) response;
-            
             if (httpResponse.statusCode == 200) {
                 NSString *text = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                 
@@ -99,7 +98,9 @@
         }
         
         _note.contents = _textView.text;
-        _note.path = _filename.text;
+        
+        BOOL fileNameContainExtention = [self.filename.text containsString:@"."];
+        _note.path = fileNameContainExtention ? self.filename.text : [_filename.text stringByAppendingString:@".txt"];
         
         // - UPLOAD FILE TO DROPBOX - //
 //        [self.delegate noteDetailsViewControllerDoneWithDetails:self];
