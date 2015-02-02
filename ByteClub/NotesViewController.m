@@ -122,7 +122,8 @@
     return cell;
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     UINavigationController *navigationController = segue.destinationViewController;
     NoteDetailsViewController *showNoteVC = (NoteDetailsViewController*) [navigationController viewControllers][0];
     showNoteVC.delegate = self;
